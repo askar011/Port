@@ -53,12 +53,12 @@ public class Ship implements Runnable {
                 loadController.loadFromPort(port, this, LOAD_CONTAINER_AMOUNT);
             }
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            LOGGER.error(e);
         }
         try {
             TimeUnit.SECONDS.sleep(5);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            LOGGER.error(e);
         }
         LOGGER.info(model + " finished and leaving the port");
         semaphore.release();

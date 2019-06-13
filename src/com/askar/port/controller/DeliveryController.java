@@ -18,20 +18,19 @@ public class DeliveryController {
     public DeliveryController(Port port) {
         this.port = port;
         isFull = port.getLock().newCondition();
-
     }
 
     public void deliverToPort(Port port, Ship ship) {
         LOGGER.info(ship.getModel() + " delivering containers to port");
         port.getLock().lock();
         try {
-            while (port.getContainerCount() > Port.CAPACITY/2 + 500) {
+            while (port.getContainerCount() > Port.CAPACITY / 2 + 500) {
                 try {
                     LOGGER.info("Port is full,waiting for a container controller " + ship.getModel());
                     LOGGER.info(port.getContainerCount());
                     isFull.await();
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    LOGGER.error(e);
                 }
             }
             while (ship.getContainerCount() != 0) {
@@ -41,7 +40,7 @@ public class DeliveryController {
             try {
                 TimeUnit.SECONDS.sleep(5);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                LOGGER.error(e);
             }
             LOGGER.info("containers in" + ship.getModel() + ":" + ship.getContainerCount());
             LOGGER.info("Finished delivering to port " + ship.getModel());
@@ -65,13 +64,13 @@ public class DeliveryController {
             try {
                 TimeUnit.SECONDS.sleep(5);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                LOGGER.error(e);
             }
             LOGGER.info(port.getContainerCount());
             LOGGER.info("Port is free,continue delivering");
             isFull.signalAll();
         } catch (InterruptedException e1) {
-            e1.printStackTrace();
+            LOGGER.error(e1);
         } finally {
             port.getLock().unlock();
         }

@@ -10,7 +10,6 @@ public class Delivery implements Runnable {
     private final static int DELIVER_CONTAINER_COUNT = 200;
     private LoadController loadController;
     private DeliveryController deliveryController;
-    private Thread loadContainers, deliverContainers;
 
     public Delivery(Port port, LoadController loadController, DeliveryController deliveryController) {
         this.port = port;
@@ -24,21 +23,6 @@ public class Delivery implements Runnable {
             deliveryController.loadFromPort(port, DELIVER_CONTAINER_COUNT);
             loadController.deliverToPort(port, DELIVER_CONTAINER_COUNT);
         }
-    }
-
-    private void loadContainers() {
-        loadContainers = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                deliveryController.loadFromPort(port, DELIVER_CONTAINER_COUNT);
-            }
-        });
-        loadContainers.start();
-    }
-
-    private void deliverContainers() {
-        deliverContainers = new Thread(() -> loadController.deliverToPort(port, DELIVER_CONTAINER_COUNT));
-        deliverContainers.start();
     }
 
 }

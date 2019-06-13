@@ -31,7 +31,7 @@ public class LoadController {
                     LOGGER.info("Port is free,waiting for a container delivering " + ship.getModel());
                     isEmpty.await();
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    LOGGER.error(e);
                 }
             }
             while (ship.getContainerCount() <= ship.getCapacity()) {
@@ -65,7 +65,7 @@ public class LoadController {
             LOGGER.info("Delivering to port finished");
             isEmpty.signalAll();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            LOGGER.error(e);
         } finally {
             port.getLock().unlock();
         }
