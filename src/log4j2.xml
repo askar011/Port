@@ -5,7 +5,7 @@
             <PatternLayout
                     pattern="%d{ABSOLUTE} [%-5p] (%F:%L) - %m%n" />
         </Console>
-        <File name="File" fileName="log/app.log">
+        <File name="File" fileName="log/app.log" append="false">
             <PatternLayout
                     pattern="%d{ABSOLUTE} [%-5p] (%F:%L) - %m%n" />
         </File>

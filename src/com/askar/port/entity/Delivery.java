@@ -1,7 +1,7 @@
 package com.askar.port.entity;
 
-import com.askar.port.service.DeliveryController;
-import com.askar.port.service.LoadController;
+import com.askar.port.controller.DeliveryController;
+import com.askar.port.controller.LoadController;
 
 public class Delivery implements Runnable {
 
@@ -20,7 +20,10 @@ public class Delivery implements Runnable {
 
     @Override
     public void run() {
-
+        while (true) {
+            deliveryController.loadFromPort(port, DELIVER_CONTAINER_COUNT);
+            loadController.deliverToPort(port, DELIVER_CONTAINER_COUNT);
+        }
     }
 
     private void loadContainers() {

@@ -1,7 +1,8 @@
 package com.askar.port.entity;
 
-import com.askar.port.service.DeliveryController;
-import com.askar.port.service.LoadController;
+import com.askar.port.controller.DeliveryController;
+import com.askar.port.controller.LoadController;
+import com.askar.port.validator.ContainerCountValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -18,8 +19,6 @@ public class Ship implements Runnable {
     private ServiceType serviceType;
     private AtomicInteger containerCount = new AtomicInteger();
     private Port port;
-    public Thread load, deliver;
-    public boolean running = false;
     private Semaphore semaphore;
     private LoadController loadController;
     private static final int LOAD_CONTAINER_AMOUNT = 50;
@@ -30,7 +29,7 @@ public class Ship implements Runnable {
         this.capacity = capacity;
         this.model = model;
         this.serviceType = serviceType;
-        this.containerCount.set(containerCount);
+        this.setContainerCount(containerCount);
         this.port = port;
         this.loadController = loadController;
         this.deliveryController = deliveryController;
@@ -44,14 +43,14 @@ public class Ship implements Runnable {
             LOGGER.info("Ship " + model + " came to the port");
             if (serviceType.toString().equals("LOAD")) {
                 LOGGER.info("Ship " + model + " is loading");
-                load();
+                loadController.loadFromPort(port, this, LOAD_CONTAINER_AMOUNT);
             } else if (serviceType.toString().equals("DELIVERY")) {
                 LOGGER.info("Ship " + model + " is delivering");
-                deliver();
+                deliveryController.deliverToPort(port, this);
             } else {
                 LOGGER.info("Ship " + model + " is delivering and loading");
-                deliver();
-                load();
+                deliveryController.deliverToPort(port, this);
+                loadController.loadFromPort(port, this, LOAD_CONTAINER_AMOUNT);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -65,19 +64,12 @@ public class Ship implements Runnable {
         semaphore.release();
     }
 
-    private void load() {
-        load = new Thread(() -> {
-            loadController.loadFromPort(port, this, LOAD_CONTAINER_AMOUNT);
-        });
-        load.start();
-    }
-
-    private void deliver() {
-        deliver = new Thread(() -> {
-            deliveryController.deliverToPort(port, this);
-        });
-        deliver.start();
-
+    private void setContainerCount(int containerCount) {
+        if (ContainerCountValidator.countIsValid(this, containerCount)) {
+            this.containerCount.set(containerCount);
+        } else {
+            throw new IllegalArgumentException("Containers must be less than ship capacity");
+        }
     }
 
 
