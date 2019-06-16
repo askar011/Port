@@ -7,11 +7,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Objects;
+import java.util.Random;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Ship implements Runnable {
+public class Ship extends Thread {
 
     private static final Logger LOGGER = LogManager.getLogger(Ship.class);
     private int capacity;
@@ -21,8 +22,10 @@ public class Ship implements Runnable {
     private Port port;
     private Semaphore semaphore;
     private LoadController loadController;
-    private static final int LOAD_CONTAINER_AMOUNT = 50;
     private DeliveryController deliveryController;
+    private ContainerCountValidator containerCountValidator = new ContainerCountValidator();
+    private Random random = new Random();
+    private int waitTime;
 
     public Ship(int containerCount, String model, ServiceType serviceType, int capacity, Port port,
                 LoadController loadController, DeliveryController deliveryController, Semaphore semaphore) {
@@ -34,6 +37,7 @@ public class Ship implements Runnable {
         this.loadController = loadController;
         this.deliveryController = deliveryController;
         this.semaphore = semaphore;
+        this.setWaitTime();
     }
 
     @Override
@@ -43,14 +47,14 @@ public class Ship implements Runnable {
             LOGGER.info("Ship " + model + " came to the port");
             if (serviceType.toString().equals("LOAD")) {
                 LOGGER.info("Ship " + model + " is loading");
-                loadController.loadFromPort(port, this, LOAD_CONTAINER_AMOUNT);
+                loadController.loadFromPort(port, this);
             } else if (serviceType.toString().equals("DELIVERY")) {
                 LOGGER.info("Ship " + model + " is delivering");
                 deliveryController.deliverToPort(port, this);
             } else {
                 LOGGER.info("Ship " + model + " is delivering and loading");
                 deliveryController.deliverToPort(port, this);
-                loadController.loadFromPort(port, this, LOAD_CONTAINER_AMOUNT);
+                loadController.loadFromPort(port, this);
             }
         } catch (InterruptedException e) {
             LOGGER.error(e);
@@ -64,14 +68,21 @@ public class Ship implements Runnable {
         semaphore.release();
     }
 
+    public void setWaitTime() {
+        this.waitTime = random.nextInt(10);
+    }
+
+    public int getWaitTime() {
+        return waitTime;
+    }
+
     private void setContainerCount(int containerCount) {
-        if (ContainerCountValidator.countIsValid(this, containerCount)) {
+        if (containerCountValidator.countIsValid(this, containerCount)) {
             this.containerCount.set(containerCount);
         } else {
             throw new IllegalArgumentException("Containers must be less than ship capacity");
         }
     }
-
 
     public ServiceType getServiceType() {
         return serviceType;

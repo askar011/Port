@@ -1,5 +1,6 @@
 package com.askar.port.entity;
 
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -7,13 +8,15 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Port {
 
     private String name;
-    public final static int CAPACITY = 2000;
+    private static final int CAPACITY = 3000;
     private AtomicInteger containerCount = new AtomicInteger();
     private Lock lock = new ReentrantLock();
+    private AtomicBoolean portRun = new AtomicBoolean();
 
     public Port(String name, int containerCount) {
         this.name = name;
         this.containerCount.set(containerCount);
+        portRun.set(true);
     }
 
     public String getName() {
@@ -32,6 +35,14 @@ public class Port {
         return lock;
     }
 
+    public boolean isPortRun() {
+        return portRun.get();
+    }
+
+    public void stopPort() {
+        portRun.set(false);
+    }
+
     public void setContainerCount(int containerCount) {
         this.containerCount.set(containerCount);
     }
@@ -42,7 +53,7 @@ public class Port {
 
     public void unloadContainers(int containerCount) {
         int temp = this.containerCount.get() - containerCount;
-        this.containerCount.set(containerCount);
+        this.containerCount.set(temp);
     }
 
 }

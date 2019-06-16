@@ -1,28 +1,50 @@
 package com.askar.port.entity;
 
-import com.askar.port.controller.DeliveryController;
-import com.askar.port.controller.LoadController;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.concurrent.TimeUnit;
 
 public class Delivery implements Runnable {
 
+    private static final Logger LOGGER = LogManager.getLogger(Delivery.class);
     private Port port;
-    public final static int MIN_CONTAINER_AMOUNT = 250;
-    private final static int DELIVER_CONTAINER_COUNT = 200;
-    private LoadController loadController;
-    private DeliveryController deliveryController;
+    private static final int MIN_CONTAINER_AMOUNT = 500;
+    private static final int MAX_CONTAINER_AMOUNT = 2400;
+    private static final int DELIVER_CONTAINER_AMOUNT = 1000;
+    private static final int WAITING_TIME = 5;
 
-    public Delivery(Port port, LoadController loadController, DeliveryController deliveryController) {
+    public Delivery(Port port) {
         this.port = port;
-        this.loadController = loadController;
-        this.deliveryController = deliveryController;
     }
 
     @Override
     public void run() {
-        while (true) {
-            deliveryController.loadFromPort(port, DELIVER_CONTAINER_COUNT);
-            loadController.deliverToPort(port, DELIVER_CONTAINER_COUNT);
+        while (port.isPortRun()) {
+            if (port.getContainerCount() < MIN_CONTAINER_AMOUNT) {
+                port.getLock().lock();
+                LOGGER.info("Port is free, wait for delivering containers to port");
+                try {
+                    port.loadContainers(DELIVER_CONTAINER_AMOUNT);
+                    TimeUnit.SECONDS.sleep(WAITING_TIME);
+                } catch (InterruptedException e) {
+                    LOGGER.error(e);
+                } finally {
+                    port.getLock().unlock();
+                }
+            }
+            if (port.getContainerCount() > MAX_CONTAINER_AMOUNT) {
+                port.getLock().lock();
+                LOGGER.info("Port is full, wait for loading containers from port");
+                try {
+                    TimeUnit.SECONDS.sleep(WAITING_TIME);
+                    port.unloadContainers(DELIVER_CONTAINER_AMOUNT);
+                } catch (InterruptedException e) {
+                    LOGGER.error(e);
+                } finally {
+                    port.getLock().unlock();
+                }
+            }
         }
     }
-
 }

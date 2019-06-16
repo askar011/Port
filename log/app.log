@@ -1,10 +1,195 @@
-14:52:59,379 [INFO ] (Ship.java:43) - Ship 1 came to the port
-14:52:59,385 [INFO ] (Ship.java:48) - Ship 1 is delivering
-14:52:59,386 [INFO ] (DeliveryController.java:25) - 1 delivering containers to port
-14:53:04,416 [INFO ] (DeliveryController.java:46) - containers in1:0
-14:53:04,418 [INFO ] (DeliveryController.java:47) - Finished delivering to port 1
-14:53:04,421 [INFO ] (DeliveryController.java:61) - Getting containers from port
-14:53:09,422 [INFO ] (Ship.java:63) - 1 finished and leaving the port
-14:53:09,426 [INFO ] (DeliveryController.java:70) - 200
-14:53:09,426 [INFO ] (DeliveryController.java:71) - Port is free,continue delivering
-14:53:09,428 [INFO ] (LoadController.java:58) - Started Delivering containers to port
+16:08:51,644 [INFO ] (Ship.java:47) - Ship 4 came to the port
+16:08:51,648 [INFO ] (Ship.java:49) - Ship 4 is loading
+16:08:51,644 [INFO ] (Ship.java:47) - Ship 1 came to the port
+16:08:51,648 [INFO ] (Ship.java:49) - Ship 1 is loading
+16:08:52,649 [INFO ] (LoadController.java:22) - Finished loading to ship 1:500
+16:08:52,659 [INFO ] (LoadController.java:23) - portContainer Count:1700
+16:08:56,640 [INFO ] (Main.java:39) - Closing port and delivery system now
+16:08:57,662 [INFO ] (Ship.java:67) - 1 finished and leaving the port
+16:08:57,662 [INFO ] (Ship.java:47) - Ship 2 came to the port
+16:08:57,662 [INFO ] (Ship.java:49) - Ship 2 is loading
+16:10:40,276 [INFO ] (Ship.java:47) - Ship 1 came to the port
+16:10:40,280 [INFO ] (Ship.java:49) - Ship 1 is loading
+16:10:40,276 [INFO ] (Ship.java:47) - Ship 4 came to the port
+16:10:40,276 [INFO ] (Main.java:34) - Closing port and delivery system now
+16:10:40,280 [INFO ] (Ship.java:49) - Ship 4 is loading
+16:10:48,313 [INFO ] (LoadController.java:22) - Finished loading to ship 4:500
+16:10:48,317 [INFO ] (LoadController.java:23) - portContainer Count:1700
+16:10:49,284 [INFO ] (LoadController.java:22) - Finished loading to ship 1:500
+16:10:49,284 [INFO ] (LoadController.java:23) - portContainer Count:1200
+16:11:12,424 [INFO ] (Ship.java:47) - Ship 1 came to the port
+16:11:12,428 [INFO ] (Ship.java:49) - Ship 1 is loading
+16:11:12,424 [INFO ] (Ship.java:47) - Ship 3 came to the port
+16:11:12,424 [INFO ] (Main.java:34) - Closing port and delivery system now
+16:11:12,432 [INFO ] (Ship.java:49) - Ship 3 is loading
+16:11:17,462 [INFO ] (LoadController.java:22) - Finished loading to ship 3:500
+16:11:17,462 [INFO ] (LoadController.java:23) - portContainer Count:1700
+16:11:50,203 [INFO ] (Ship.java:47) - Ship 1 came to the port
+16:11:50,206 [INFO ] (Ship.java:49) - Ship 1 is loading
+16:11:50,206 [INFO ] (Ship.java:47) - Ship 4 came to the port
+16:11:50,210 [INFO ] (Ship.java:49) - Ship 4 is loading
+16:11:55,212 [INFO ] (LoadController.java:22) - Finished loading to ship 4:500
+16:11:55,222 [INFO ] (LoadController.java:23) - portContainer Count:1700
+16:11:56,210 [INFO ] (LoadController.java:22) - Finished loading to ship 1:500
+16:11:56,210 [INFO ] (LoadController.java:23) - portContainer Count:1200
+16:12:04,146 [INFO ] (Ship.java:47) - Ship 1 came to the port
+16:12:04,150 [INFO ] (Ship.java:49) - Ship 1 is loading
+16:12:04,146 [INFO ] (Ship.java:47) - Ship 4 came to the port
+16:12:04,150 [INFO ] (Ship.java:49) - Ship 4 is loading
+16:12:04,154 [INFO ] (Main.java:35) - Closing port and delivery system now
+16:12:06,194 [INFO ] (LoadController.java:22) - Finished loading to ship 4:500
+16:12:06,194 [INFO ] (LoadController.java:23) - portContainer Count:1700
+16:12:30,299 [INFO ] (Ship.java:48) - Ship 2 came to the port
+16:12:30,299 [INFO ] (Ship.java:50) - Ship 2 is loading
+16:12:30,299 [INFO ] (Ship.java:48) - Ship 1 came to the port
+16:12:30,299 [INFO ] (Ship.java:50) - Ship 1 is loading
+16:12:30,299 [INFO ] (Main.java:35) - Closing port and delivery system now
+16:12:36,339 [INFO ] (LoadController.java:22) - Finished loading to ship 1:500
+16:12:36,343 [INFO ] (LoadController.java:23) - portContainer Count:1700
+16:12:39,299 [INFO ] (LoadController.java:22) - Finished loading to ship 2:500
+16:12:39,299 [INFO ] (LoadController.java:23) - portContainer Count:1200
+16:12:41,348 [INFO ] (Ship.java:68) - 1 finished and leaving the port
+16:12:41,348 [INFO ] (Ship.java:48) - Ship 4 came to the port
+16:12:41,348 [INFO ] (Ship.java:50) - Ship 4 is loading
+16:12:42,351 [INFO ] (LoadController.java:22) - Finished loading to ship 4:500
+16:12:42,351 [INFO ] (LoadController.java:23) - portContainer Count:700
+16:12:44,301 [INFO ] (Ship.java:68) - 2 finished and leaving the port
+16:12:44,301 [INFO ] (Ship.java:48) - Ship 3 came to the port
+16:12:44,305 [INFO ] (Ship.java:50) - Ship 3 is loading
+16:12:47,353 [INFO ] (Ship.java:68) - 4 finished and leaving the port
+16:12:48,307 [INFO ] (LoadController.java:22) - Finished loading to ship 3:500
+16:12:48,307 [INFO ] (LoadController.java:23) - portContainer Count:200
+16:12:53,317 [INFO ] (Ship.java:68) - 3 finished and leaving the port
+16:13:10,660 [INFO ] (Ship.java:48) - Ship 4 came to the port
+16:13:10,660 [INFO ] (Ship.java:48) - Ship 1 came to the port
+16:13:10,664 [INFO ] (Ship.java:50) - Ship 4 is loading
+16:13:10,664 [INFO ] (Ship.java:50) - Ship 1 is loading
+16:13:11,671 [INFO ] (LoadController.java:22) - Finished loading to ship 1:500
+16:13:11,681 [INFO ] (LoadController.java:23) - portContainer Count:1700
+16:13:16,687 [INFO ] (Ship.java:68) - 1 finished and leaving the port
+16:13:16,687 [INFO ] (Ship.java:48) - Ship 3 came to the port
+16:13:16,687 [INFO ] (Ship.java:50) - Ship 3 is loading
+16:13:16,687 [INFO ] (LoadController.java:22) - Finished loading to ship 3:500
+16:13:16,687 [INFO ] (LoadController.java:23) - portContainer Count:1200
+16:13:17,665 [INFO ] (LoadController.java:22) - Finished loading to ship 4:500
+16:13:17,665 [INFO ] (LoadController.java:23) - portContainer Count:700
+16:13:21,690 [INFO ] (Ship.java:68) - 3 finished and leaving the port
+16:13:21,690 [INFO ] (Ship.java:48) - Ship 2 came to the port
+16:13:21,690 [INFO ] (Ship.java:50) - Ship 2 is loading
+16:13:22,668 [INFO ] (Ship.java:68) - 4 finished and leaving the port
+16:13:26,692 [INFO ] (LoadController.java:22) - Finished loading to ship 2:500
+16:13:26,692 [INFO ] (LoadController.java:23) - portContainer Count:200
+16:13:26,692 [INFO ] (Delivery.java:26) - Port is free, wait for delivering containers to port
+16:13:31,695 [INFO ] (Ship.java:68) - 2 finished and leaving the port
+16:17:15,980 [INFO ] (Ship.java:48) - Ship 2 came to the port
+16:17:15,976 [INFO ] (Ship.java:48) - Ship 4 came to the port
+16:17:15,984 [INFO ] (Ship.java:50) - Ship 4 is loading
+16:17:15,984 [INFO ] (Ship.java:50) - Ship 2 is loading
+16:17:16,000 [INFO ] (LoadController.java:22) - Finished loading to ship 2:500
+16:17:16,000 [INFO ] (LoadController.java:23) - portContainer Count:1700
+16:32:19,634 [INFO ] (Ship.java:48) - Ship 1 came to the port
+16:32:19,638 [INFO ] (Ship.java:48) - Ship 4 came to the port
+16:32:19,642 [INFO ] (Ship.java:50) - Ship 1 is loading
+16:32:19,642 [INFO ] (Ship.java:50) - Ship 4 is loading
+16:32:19,674 [INFO ] (LoadController.java:22) - Finished loading to ship 1:500
+16:32:19,674 [INFO ] (LoadController.java:23) - portContainer Count:1700
+16:32:24,679 [INFO ] (Ship.java:68) - 1 finished and leaving the port
+16:32:24,679 [INFO ] (Ship.java:48) - Ship 3 came to the port
+16:32:24,679 [INFO ] (Ship.java:50) - Ship 3 is loading
+16:32:25,646 [INFO ] (LoadController.java:22) - Finished loading to ship 4:500
+16:32:25,646 [INFO ] (LoadController.java:23) - portContainer Count:1200
+16:32:30,647 [INFO ] (Ship.java:68) - 4 finished and leaving the port
+16:32:30,647 [INFO ] (Ship.java:48) - Ship 2 came to the port
+16:32:30,647 [INFO ] (Ship.java:50) - Ship 2 is loading
+16:32:30,683 [INFO ] (LoadController.java:22) - Finished loading to ship 3:500
+16:32:30,683 [INFO ] (LoadController.java:23) - portContainer Count:700
+16:32:35,684 [INFO ] (Ship.java:68) - 3 finished and leaving the port
+16:32:36,651 [INFO ] (LoadController.java:22) - Finished loading to ship 2:500
+16:32:36,651 [INFO ] (LoadController.java:23) - portContainer Count:200
+16:32:36,651 [INFO ] (Delivery.java:26) - Port is free, wait for delivering containers to port
+16:32:41,653 [INFO ] (Ship.java:68) - 2 finished and leaving the port
+16:33:01,842 [INFO ] (Ship.java:48) - Ship 1 came to the port
+16:33:01,846 [INFO ] (Ship.java:50) - Ship 1 is loading
+16:33:01,842 [INFO ] (Ship.java:48) - Ship 2 came to the port
+16:33:01,846 [INFO ] (Ship.java:50) - Ship 2 is loading
+16:33:04,858 [INFO ] (LoadController.java:22) - Finished loading to ship 2:500
+16:33:04,858 [INFO ] (LoadController.java:23) - portContainer Count:1700
+16:33:06,847 [INFO ] (LoadController.java:22) - Finished loading to ship 1:500
+16:33:06,847 [INFO ] (LoadController.java:23) - portContainer Count:1200
+16:33:09,859 [INFO ] (Ship.java:68) - 2 finished and leaving the port
+16:33:09,859 [INFO ] (Ship.java:48) - Ship 3 came to the port
+16:33:09,859 [INFO ] (Ship.java:50) - Ship 3 is loading
+16:33:11,848 [INFO ] (Ship.java:68) - 1 finished and leaving the port
+16:33:11,848 [INFO ] (Ship.java:48) - Ship 4 came to the port
+16:33:11,848 [INFO ] (Ship.java:50) - Ship 4 is loading
+16:33:12,851 [INFO ] (LoadController.java:22) - Finished loading to ship 4:500
+16:33:12,851 [INFO ] (LoadController.java:23) - portContainer Count:700
+16:33:17,852 [INFO ] (Ship.java:68) - 4 finished and leaving the port
+16:33:18,859 [INFO ] (LoadController.java:22) - Finished loading to ship 3:500
+16:33:18,859 [INFO ] (LoadController.java:23) - portContainer Count:200
+16:33:18,859 [INFO ] (Delivery.java:26) - Port is free, wait for delivering containers to port
+16:33:23,861 [INFO ] (Ship.java:68) - 3 finished and leaving the port
+16:33:51,835 [INFO ] (Main.java:40) - CLosing port and delivering
+16:35:54,656 [INFO ] (Ship.java:48) - Ship 1 came to the port
+16:35:54,656 [INFO ] (Ship.java:48) - Ship 7 came to the port
+16:35:54,660 [INFO ] (Ship.java:53) - Ship 7 is delivering
+16:35:54,660 [INFO ] (Ship.java:50) - Ship 1 is loading
+16:36:01,663 [INFO ] (DeliveryController.java:20) - 7 delivering containers to port
+16:36:01,663 [INFO ] (Delivery.java:38) - Port is full, wait for loading containers from port
+16:36:01,671 [INFO ] (DeliveryController.java:23) - containers in7:0
+16:36:01,671 [INFO ] (DeliveryController.java:24) - port2500
+16:36:01,671 [INFO ] (DeliveryController.java:25) - Finished delivering to port 7
+16:36:02,661 [INFO ] (LoadController.java:22) - Finished loading to ship 1:500
+16:36:02,661 [INFO ] (LoadController.java:23) - portContainer Count:2000
+16:36:06,674 [INFO ] (Ship.java:68) - 7 finished and leaving the port
+16:36:06,674 [INFO ] (Ship.java:48) - Ship 9 came to the port
+16:36:06,678 [INFO ] (Ship.java:53) - Ship 9 is delivering
+16:36:07,665 [INFO ] (Ship.java:68) - 1 finished and leaving the port
+16:36:07,665 [INFO ] (Ship.java:48) - Ship 6 came to the port
+16:36:07,665 [INFO ] (Ship.java:56) - Ship 6 is delivering and loading
+16:36:11,668 [INFO ] (DeliveryController.java:20) - 6 delivering containers to port
+16:36:11,668 [INFO ] (DeliveryController.java:23) - containers in6:0
+16:36:11,668 [INFO ] (DeliveryController.java:24) - port1300
+16:36:11,668 [INFO ] (DeliveryController.java:25) - Finished delivering to port 6
+16:36:12,678 [INFO ] (DeliveryController.java:20) - 9 delivering containers to port
+16:36:12,678 [INFO ] (DeliveryController.java:23) - containers in9:0
+16:36:12,678 [INFO ] (DeliveryController.java:24) - port1720
+16:36:12,678 [INFO ] (DeliveryController.java:25) - Finished delivering to port 9
+16:36:15,670 [INFO ] (LoadController.java:22) - Finished loading to ship 6:500
+16:36:15,670 [INFO ] (LoadController.java:23) - portContainer Count:1220
+16:36:17,680 [INFO ] (Ship.java:68) - 9 finished and leaving the port
+16:36:17,680 [INFO ] (Ship.java:48) - Ship 2 came to the port
+16:36:17,680 [INFO ] (Ship.java:50) - Ship 2 is loading
+16:36:20,672 [INFO ] (Ship.java:68) - 6 finished and leaving the port
+16:36:20,672 [INFO ] (Ship.java:48) - Ship 5 came to the port
+16:36:20,672 [INFO ] (Ship.java:53) - Ship 5 is delivering
+16:36:26,684 [INFO ] (LoadController.java:22) - Finished loading to ship 2:500
+16:36:26,684 [INFO ] (LoadController.java:23) - portContainer Count:720
+16:36:28,673 [INFO ] (DeliveryController.java:20) - 5 delivering containers to port
+16:36:28,673 [INFO ] (DeliveryController.java:23) - containers in5:0
+16:36:28,673 [INFO ] (DeliveryController.java:24) - port920
+16:36:28,673 [INFO ] (DeliveryController.java:25) - Finished delivering to port 5
+16:36:31,685 [INFO ] (Ship.java:68) - 2 finished and leaving the port
+16:36:31,685 [INFO ] (Ship.java:48) - Ship 8 came to the port
+16:36:31,685 [INFO ] (Ship.java:56) - Ship 8 is delivering and loading
+16:36:32,687 [INFO ] (DeliveryController.java:20) - 8 delivering containers to port
+16:36:32,687 [INFO ] (DeliveryController.java:23) - containers in8:0
+16:36:32,687 [INFO ] (DeliveryController.java:24) - port1350
+16:36:32,687 [INFO ] (DeliveryController.java:25) - Finished delivering to port 8
+16:36:33,674 [INFO ] (Ship.java:68) - 5 finished and leaving the port
+16:36:33,674 [INFO ] (Ship.java:48) - Ship 3 came to the port
+16:36:33,674 [INFO ] (Ship.java:53) - Ship 3 is delivering
+16:36:33,690 [INFO ] (LoadController.java:22) - Finished loading to ship 8:500
+16:36:33,690 [INFO ] (LoadController.java:23) - portContainer Count:850
+16:36:36,674 [INFO ] (DeliveryController.java:20) - 3 delivering containers to port
+16:36:36,674 [INFO ] (DeliveryController.java:23) - containers in3:0
+16:36:36,674 [INFO ] (DeliveryController.java:24) - port1250
+16:36:36,674 [INFO ] (DeliveryController.java:25) - Finished delivering to port 3
+16:36:38,691 [INFO ] (Ship.java:68) - 8 finished and leaving the port
+16:36:38,691 [INFO ] (Ship.java:48) - Ship 4 came to the port
+16:36:38,691 [INFO ] (Ship.java:50) - Ship 4 is loading
+16:36:41,676 [INFO ] (Ship.java:68) - 3 finished and leaving the port
+16:36:44,648 [INFO ] (Main.java:40) - CLosing port and delivering
+16:36:44,692 [INFO ] (LoadController.java:22) - Finished loading to ship 4:500
+16:36:44,692 [INFO ] (LoadController.java:23) - portContainer Count:750
+16:36:49,694 [INFO ] (Ship.java:68) - 4 finished and leaving the port
